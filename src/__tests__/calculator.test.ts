@@ -24,4 +24,67 @@ let dataset = [
   { x: 81, y: 227, method: "divide" },
 ];
 
-describe("Calculator", () => {});
+describe("Calculator", () => {
+
+  it("calcs", async() => {
+    for (var i in dataset) {
+      let data = dataset[i]
+    
+      let x = data.x
+      let y = data.y 
+      let method = data.method
+      let answer
+      let calculated_answer
+      switch (method) {
+        case "add":
+          answer = x+y
+          calculated_answer = calculator.add(x,y)
+          break;
+        case "subtract":
+          answer = x-y
+          calculated_answer = calculator.subtract(x,y)
+          break;
+        case "multiply":
+          answer = x*y
+          calculated_answer = calculator.multiply(x,y)
+          break;
+        case "divide":
+          answer = x/y
+          calculated_answer = calculator.divide(x,y)
+          break;
+      }
+      expect(calculated_answer).toEqual(answer)
+    }
+  })
+    
+  for (var i in dataset) {
+    let data = dataset[i]
+    it(`Calculating ${data.x} ${data.method} ${data.y}`, async() => {
+      let x = data.x
+      let y = data.y 
+      let method = data.method
+      let answer
+      let calculated_answer
+      switch (method) {
+        case "add":
+          answer = x+y
+          calculated_answer = calculator.add(x,y)
+          break;
+        case "subtract":
+          answer = x-y
+          calculated_answer = calculator.subtract(x,y)
+          break;
+        case "multiply":
+          answer = x*y
+          calculated_answer = calculator.multiply(x,y)
+          break;
+        case "divide":
+          answer = x/y
+          calculated_answer = calculator.divide(x,y)
+          break;
+      }
+      expect(calculated_answer).toEqual(answer)
+    })
+  }
+
+});
